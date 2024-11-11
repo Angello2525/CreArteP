@@ -1,0 +1,91 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .header-top {
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-container img {
+    height: 70px;
+    object-fit: contain;
+  }
+  
+  .icons-container {
+    display: flex;
+    gap: 20px;
+    padding-left: 2%;
+  }
+  
+  .icon {
+    color: #FF0000;
+    font-size: 100px;
+    cursor: pointer;
+  }
+  
+  .nav-container {
+    background-color: #FF0000;
+    padding: 15px 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    opacity: 0.8;
+  }
+  
+  .hamburger {
+    display: none;
+    color: #FF0000;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #FF0000;
+      padding: 20px;
+      gap: 20px;
+      text-align: center;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  }

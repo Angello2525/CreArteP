@@ -1,0 +1,61 @@
+.service-icons-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+  margin-bottom: 2rem;
+  margin-top: 80px; 
+}
+
+.service-icon-container {
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+  width: 120px; /* Ancho fijo para cada contenedor de icono */
+}
+
+.service-icon {
+  width: 110px;
+  height: 110px;
+  transition: transform 0.2s ease;
+}
+
+.service-icon-container:hover .service-icon {
+  transform: translateY(-5px);
+}
+
+.service-icon.selected {
+  filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+}
+
+.service-info-container {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.service-info-modal {
+  background: white;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+}
+
+.service-info-content {
+  text-align: center;
+}
+
+.service-title {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
