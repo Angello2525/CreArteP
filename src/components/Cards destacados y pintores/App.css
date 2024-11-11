@@ -1,0 +1,158 @@
+.product-card {
+  position: relative;
+  width: 200px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transform: translate(40%, -12%);
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 19px;
+  z-index: 1;
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.like-button,
+.add-to-cart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.like-button:hover,
+.add-to-cart-button:hover {
+  transform: scale(1.2);
+}
+
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 70px;
+}
+
+.heart-icon {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.heart-icon.liked {
+  color: red;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.like-count {
+  font-size: 1rem;
+  margin-left: 5px;
+  color: #333;
+}
+
+.add-to-cart-icon {
+  cursor: pointer;
+  color: gray;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.add-to-cart-icon:hover {
+  color: red
+}
+
+/* src/styles.css */
+.app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Estilos para productos */
+.products-grid,
+.painters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-card,
+.painter-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: box-shadow 0.2s ease;
+}
+
+.product-card:hover,
+.painter-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-more-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-more-button:hover {
+  background-color: #ff6347;
+}

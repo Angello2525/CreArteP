@@ -1,0 +1,11 @@
+.product-list {
+    display: flex !important; /* Asegura que el contenedor sea flex */
+    flex-direction: row !important; /* Fuerza a las tarjetas a estar en fila */
+    flex-wrap: nowrap !important;   /* Evita que las tarjetas se apilen verticalmente */
+    overflow-x: auto; /* Habilita desplazamiento horizontal si es necesario */
+    gap: 20px;        /* Espacio entre tarjetas */
+    padding: 20px;
+    background-color: #f5f5f5;
+    justify-content: flex-start; /* Alinea las tarjetas al inicio */
+    align-items: flex-start; /* Alinea las tarjetas en la parte superior */
+}
