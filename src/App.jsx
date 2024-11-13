@@ -7,6 +7,11 @@ import Conocenos from './pages/Conocenos'
 import GuiasArt from './pages/GuiasArt'
 import Contacto from './pages/Contacto'
 import Productos from './pages/Productos'
+import Conocenos from './pages/Conocemos'
+import GuiasArt from './pages/GuiasArt'
+import Contacto from './pages/Contacto'
+import Productos from './pages/Productos'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -20,6 +25,7 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/productos" element={<Productos />} />
       </Routes>
+      <Footer />
     </>
   )
 }
