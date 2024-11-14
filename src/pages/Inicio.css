@@ -1,3 +1,9 @@
+.Inicio-container {
+  padding: 20px;  /* Este padding ya existe */
+  padding-top: 80px; /* Añade este padding-top específico */
+  font-family: Arial, sans-serif;
+}
+
 .product-card {
   position: relative;
   width: 200px;
@@ -56,6 +62,7 @@
 
 
 .product-card {
+  
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;

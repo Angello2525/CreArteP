@@ -6,11 +6,22 @@ const ProductList = ({ items, title, isPainterList = false }) => {
     const { addToCart } = useCart();
 
     return (
-        <div className="product-section">
-            {title && <h2 className="section-title">{title}</h2>}
+        <div className="product-section" style={{ paddingTop: '120px' }}>
+            {title && (
+                <h2 className="section-title" style={{
+                    fontSize: '2.5rem',
+                    color: '#FF0000',
+                    textAlign: 'center',
+                    margin: '40px 0',
+                    fontWeight: 'bold'
+                }}>
+                    {title}
+                </h2>
+            )}
             <div
                 className="product-list"
                 style={{
+                    
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
