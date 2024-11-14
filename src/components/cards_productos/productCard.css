@@ -1,0 +1,29 @@
+.product-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin: 8px;
+    text-align: center;
+    background-color: #fff8dc;
+    border-radius: 8px;
+}
+
+.product-image {
+    width: 100px;
+    height: auto;
+}
+
+.price {
+    color: red;
+}
+
+.color-options {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.color-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
