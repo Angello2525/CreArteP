@@ -1,7 +1,11 @@
 import './Inicio.css';
 import React from 'react';
 import ProductList from '../components/CardsDES_PIN/productList';
+import Banner from '../components/Banner/Banner';
+import tutorialesImg from '../assets/img/tutoriales.jpeg';
+import galeriaImg from '../assets/img/galeria.jpeg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const sampleProducts = [
@@ -79,12 +83,33 @@ const App = () => {
         <div className="app-container">
             {/* Lista de productos normales */}
             <ProductList items={sampleProducts} title="NUEVOS Y DESTACADOS" />
+            
+            {/* Banners en medio */}
+            <section className="my-16">
+                <Banner 
+                    image={tutorialesImg}
+                    title="Descubre Nuestros Tutoriales"
+                    description="Aprende nuevas técnicas y mejora tus habilidades artísticas con nuestros tutoriales exclusivos"
+                    linkTo="/Tutoriales"
+                />
+                
+                <div className="mt-8">
+                    <Banner 
+                        image={galeriaImg}
+                        title="Explora Nuestra Galería"
+                        description="Inspírate con las obras de artistas reconocidos y emergentes en nuestra galería virtual"
+                        linkTo="/Galeria"
+                    />
+                </div>
+            </section>
 
             {/* Lista de pintores famosos */}
             <ProductList items={famousPainters} title="PINTORES FAMOSOS" isPainterList={true} />
         </div>
     );
 };
+
+
 
 export default App;
 
