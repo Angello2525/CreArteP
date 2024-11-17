@@ -1,6 +1,6 @@
-import React from 'react';
-import ProductCard from './productCard';
-import './productList.css';
+import React, { useState } from 'react';
+import ProductCard from './productCard'; // Importar el componente ProductCard
+import './ProductList.css';
 
 const productsData = [
 {
@@ -38,10 +38,31 @@ const productsData = [
 ];
 
 const ProductList = ({ viewMode }) => {
+  // Estado para almacenar el color de cada producto
+const [productColors, setProductColors] = useState(
+    productsData.reduce((acc, product) => {
+      acc[product.id] = product.colors[0]; // Inicializa con el primer color de la lista de colores
+    return acc;
+    }, {})
+);
+
+  // Función para actualizar el color del producto
+const handleColorChange = (productId, color) => {
+    setProductColors((prevColors) => ({
+    ...prevColors,
+      [productId]: color, // Cambia el color del producto
+    }));
+};
+
 return (
     <div className={`product-list ${viewMode}`}>
     {productsData.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+        key={product.id}
+        product={product}
+          selectedColor={productColors[product.id]} // Pasa el color seleccionado
+          onColorChange={handleColorChange} // Pasa la función para cambiar el color
+        />
     ))}
     </div>
 );
