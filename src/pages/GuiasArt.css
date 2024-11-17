@@ -1,0 +1,40 @@
+.guias-art-container {
+    padding: 6rem 1rem 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Cambiado a 3 columnas fijas */
+    gap: 2rem;
+    padding-top: 6rem;
+}
+
+/* Ajustes responsive */
+@media (max-width: 1024px) {
+    .guides-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .guias-art-container {
+        padding-top: 5rem;
+    }
+    
+    .guides-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .guias-art-container {
+        padding-top: 4rem;
+    }
+    
+    .guides-grid {
+        padding: 0.5rem;
+    }
+}

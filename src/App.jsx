@@ -1,13 +1,15 @@
-// App.jsx
-import { Routes, Route } from 'react-router-dom'
-import Header from './components/Header/Header'
-import Inicio from './pages/Inicio'
-import Marca from './pages/Marca'
-import Conocenos from './pages/Conocenos'
-import GuiasArt from './pages/GuiasArt'
-import Contacto from './pages/Contacto'
-import Productos from './pages/Productos'
-import Footer from './components/Footer/Footer'
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Inicio from './pages/Inicio';
+import Marca from './pages/Marca';
+import Conocenos from './pages/Conocenos';
+import GuiasArt from './pages/GuiasArt';
+import GuiaArticulo from './pages/guias/michael-harding-acuarelas';
+import Contacto from './pages/Contacto';
+import Productos from './pages/Productos';
+import Tutoriales from './pages/Tutoriales';
+import Galeria from './pages/Galeria'; 
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -17,13 +19,16 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/marca" element={<Marca />} />
         <Route path="/conocenos" element={<Conocenos />} />
-        <Route path="/guiasart" element={<GuiasArt />} />
+        <Route path="/guias-art" element={<GuiasArt />} />
+        <Route path="/guias/michael-harding-acuarelas" element={<GuiaArticulo />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/productos" element={<Productos />} />
+        <Route path="/tutoriales" element={<Tutoriales />} />
+        <Route path="/galeria" element={<Galeria />} />
       </Routes>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

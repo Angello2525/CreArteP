@@ -1,0 +1,145 @@
+.guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 1rem 2rem; /* Aumentado el padding superior */
+}
+  
+.guide-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+  
+.guide-hero-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.guide-content-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+  
+.guide-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+  
+.guide-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+  
+.guide-category {
+    color: #ff0000;
+    font-weight: 600;
+}
+  
+.guide-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+  
+.guide-content h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 2.5rem 0 1rem;
+}
+  
+.guide-content p {
+    margin-bottom: 1.5rem;
+}
+  
+.guide-content ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+  
+.guide-content li {
+    margin-bottom: 0.5rem;
+}
+  
+.guide-navigation {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+  
+.guide-nav-link {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+  
+.guide-nav-link:hover {
+    color: #cc0000;
+}
+  
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .guide-container {
+        padding-top: 6rem;
+    }
+  
+    .guide-header h1 {
+        font-size: 2rem;
+    }
+  
+    .guide-hero-image {
+        height: 300px;
+    }
+
+    .guide-content-image {
+        height: 250px;
+    }
+  
+    .guide-content {
+        font-size: 1rem;
+    }
+  
+    .guide-content h2 {
+        font-size: 1.5rem;
+    }
+}
+  
+@media (max-width: 480px) {
+    .guide-container {
+        padding-top: 5rem;
+    }
+
+    .guide-header h1 {
+        font-size: 1.75rem;
+    }
+  
+    .guide-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+  
+    .guide-hero-image {
+        height: 200px;
+    }
+
+    .guide-content-image {
+        height: 200px;
+    }
+}
