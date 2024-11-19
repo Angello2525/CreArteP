@@ -4,6 +4,15 @@
   font-family: Arial, sans-serif;
 }
 
+.carousel{
+  margin-top: 140px;
+}
+
+.carousel .carousel-item img{
+  max-height: 400px;
+  
+}
+
 .product-card {
   position: relative;
   width: 200px;

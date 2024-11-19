@@ -1,12 +1,20 @@
 import './Inicio.css';
 import React from 'react';
+import { Carousel } from 'react-bootstrap';
 import ProductList from '../components/CardsDES_PIN/productList';
 import Banner from '../components/Banner/Banner';
 import tutorialesImg from '../assets/img/tutoriales.jpeg';
 import galeriaImg from '../assets/img/galeria.jpeg';
+import carousel1 from '../assets/img/1Carousel.png';
+import carousel2 from '../assets/img/2Carousel.png';
+import carousel3 from '../assets/img/3Carousel.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+const carouselImages = [
+    { id: 1, src: carousel1, alt: 'Slide 1'},
+    { id: 2, src: carousel2, alt: 'Slide 2'},
+    { id: 3, src: carousel3, alt: 'Slide 3'},
+  ];
 
 const sampleProducts = [
     { id: 1, name: 'pinturas', discount: 25, image: 'https://via.placeholder.com/150' },
@@ -81,6 +89,16 @@ const famousPainters = [
 const App = () => {
     return (
         <div className="app-container">
+
+            {/* Carrusel */}
+            <Carousel className="mb-4">
+            {carouselImages.map((slide) => (
+                <Carousel.Item key={slide.id}>
+                    <img className="d-block w-100" src={slide.src} alt={slide.alt} />
+                </Carousel.Item>
+                ))}
+            </Carousel>
+
             {/* Lista de productos normales */}
             <ProductList items={sampleProducts} title="NUEVOS Y DESTACADOS" />
             
