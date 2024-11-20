@@ -12,11 +12,11 @@ const ProductCard = ({ product, selectedColor, onColorChange }) => {
   const handleAddToCart = () => {
     const productToAdd = {
       ...product,
-      selectedColor: selectedColor || product.colors[0], // Añadir el color seleccionado o el primero por defecto
+      selectedColor: selectedColor || product.colors[0], 
     };
     
     dispatch(addToCart(productToAdd)); // Agregar al carrito en Redux
-    setShowModal(true); // Mostrar el modal de confirmación
+    setShowModal(true); 
   };
 
   const handleCloseModal = () => setShowModal(false);
