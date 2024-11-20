@@ -14,7 +14,7 @@ const carouselImages = [
     { id: 1, src: carousel1, alt: 'Slide 1'},
     { id: 2, src: carousel2, alt: 'Slide 2'},
     { id: 3, src: carousel3, alt: 'Slide 3'},
-  ];
+];
 
 const sampleProducts = [
     { id: 1, name: 'pinturas', discount: 25, image: 'https://via.placeholder.com/150' },

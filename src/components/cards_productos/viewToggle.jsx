@@ -4,7 +4,7 @@ import GridViewIcon from '@mui/icons-material/GridView'; // Ícono de cuadrícul
 import ViewListIcon from '@mui/icons-material/ViewList'; // Ícono de lista (fila)
 
 const ViewToggle = ({ viewMode, setViewMode }) => {
-  console.log("Renderizando ViewToggle"); // Agregar log para depuración
+    console.log("Renderizando ViewToggle"); 
 
 return (
     <div className="view-toggle">
