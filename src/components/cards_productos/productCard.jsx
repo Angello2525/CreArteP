@@ -14,6 +14,7 @@ const ProductCard = ({ product, selectedColor, onColorChange }) => {
       ...product,
       selectedColor: selectedColor || product.colors[0], // Añadir el color seleccionado o el primero por defecto
     };
+    
     dispatch(addToCart(productToAdd)); // Agregar al carrito en Redux
     setShowModal(true); // Mostrar el modal de confirmación
   };

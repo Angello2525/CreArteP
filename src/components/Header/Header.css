@@ -90,3 +90,69 @@
       display: block;
     }
   }
+
+  .delete-icon {
+    cursor: pointer;
+    color: red;
+    margin-left: 10px;
+    transition: color 0.3s;
+  }
+  
+  .delete-icon:hover {
+    color: darkred;
+  }
+  
+  /*css para mejorar el diseño en modal de carrito de compras*/
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-item-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .cart-item-info {
+    flex-grow: 1;
+  }
+  
+  .remove-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .remove-button:hover {
+    color: darkred;
+  }
+  
+  .remove-button i {
+    font-size: 20px;
+  }
+  
+  /* Estilo para la alineación del precio y el total */
+  .modal-body {
+    padding-bottom: 10px;
+  }
+  
+  .total-price {
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  
