@@ -11,7 +11,7 @@ const ProductCard = ({ product, onAddToCart, isPainter = false }) => {
     // Funciones para manejar likes
     const handleLike = () => {
         setIsLiked(!isLiked);
-        setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+        setLikeCount(isLiked ? likeCount + 1 : likeCount + 1);
     };
 
     // Funciones para manejar el modal
