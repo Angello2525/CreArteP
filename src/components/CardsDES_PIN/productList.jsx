@@ -6,7 +6,7 @@ const ProductList = ({ items, title, isPainterList = false }) => {
     const { addToCart } = useCart();
 
     return (
-        <div className="product-section" style={{ paddingTop: '120px' }}>
+        <div className="product-section">
             {title && (
                 <h2 className="section-title" style={{
                     fontSize: '2.5rem',
