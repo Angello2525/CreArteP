@@ -1,0 +1,91 @@
+.galeria-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.galeria-card:hover {
+    transform: translateY(-5px);
+}
+
+.galeria-card-image {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.galeria-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galeria-card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Permite que el contenido crezca para igualar alturas */
+    display: flex;
+    flex-direction: column;
+}
+
+.galeria-card-content h3 {
+    color: #333;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.guide-card-content p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Permite que el párrafo crezca */
+}
+
+.galeria-card {
+    position: relative;  
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.galeria-card-image {
+    width: 100%;
+    height: 240px;
+}
+
+.galeria-card-title {
+    font-size: 1.5rem;
+}
+
+.galeria-card-description {
+    font-size: 1rem;
+    color: #555;
+}
+
+.galeria-card-header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.featured-icon, .unfeatured-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.featured-icon {
+    color: gold; 
+}
+
+.unfeatured-icon {
+    color: gray;  
+}
+
+.featured-icon:hover, .unfeatured-icon:hover {
+    color: orange;  
+}

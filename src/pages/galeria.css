@@ -1,0 +1,78 @@
+
+.galeria-art-container {
+    padding: 6rem 1rem 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 6rem;
+}
+
+/* diseño responsive */
+@media (max-width: 1024px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .galeria-art-container {
+        padding-top: 5rem;
+    }
+    
+    .galeria-grid {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-art-container {
+        padding-top: 4rem;
+    }
+    
+    .galeria-grid {
+        padding: 0.5rem;
+    }
+}
+
+
+.additional-gallery-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.slick-prev, .slick-next {
+    font-size: 24px;
+    color: black;
+    z-index: 1;
+}
+
+.slick-prev {
+    left: 15px;
+}
+
+.slick-next {
+    right: 15px;
+}
