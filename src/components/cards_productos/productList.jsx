@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ProductCard from './productCard'; // Importar el componente ProductCard
+import ProductCard from './productCard'; 
 import './productList.css';
 
 const productsData = [
   {
     id: 1,
-    name: 'Holbein Artists Tosai Pigment Paste',
+    name: 'PIGMENTOS MULTICOLOR',
     description: 'Pigmentos puros en base de agua...',
     price: 80000,
     colors: ['#E8E8E8', '#F5D442', '#F55A42', '#42C1F5', '#72F542', '#5A42F5'],
@@ -13,7 +13,7 @@ const productsData = [
   },
   {
     id: 2,
-    name: 'Holbein Artists Tosai Pigment Paste',
+    name: 'PINTURA SOLE MATTE',
     description: 'Pigmentos puros en base de agua...',
     price: 60000,
     colors: ['#E8E8E8', '#F5D442', '#F55A42', '#42C1F5', '#72F542', '#5A42F5'],
@@ -21,7 +21,7 @@ const productsData = [
   },
   {
     id: 3,
-    name: 'Holbein Artists Tosai Pigment Paste',
+    name: 'ACLIRICO ROSS PASTEL',
     description: 'Pigmentos puros en base de agua...',
     price: 30000,
     colors: ['#E8E8E8', '#F5D442', '#F55A42', '#42C1F5', '#72F542', '#5A42F5'],
@@ -29,7 +29,7 @@ const productsData = [
   },
   {
     id: 4,
-    name: 'Holbein Artists Tosai Pigment Paste',
+    name: 'VINILO ELE FLURESENTE',
     description: 'Pigmentos puros en base de agua...',
     price: 90000,
     colors: ['#E8E8E8', '#F5D442', '#F55A42', '#42C1F5', '#72F542', '#5A42F5'],
