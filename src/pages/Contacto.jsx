@@ -39,6 +39,7 @@ const Contact = () => {
         <MapContainer
           center={[6.2442, -75.5812]}
           zoom={13}
+          style={{ height: "100%", width: "100%" }}
           zoomControl={false}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
