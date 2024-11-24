@@ -5,7 +5,7 @@ import logo from '../../assets/img/logo.png';
 import './Header.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
-import { REMOVE_FROM_CART, addToCart, removeFromCart } from '../../assets/redux/actions';
+import { REMOVE_FROM_CART, addToCart, removeFromCart } from '../../redux/actions';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

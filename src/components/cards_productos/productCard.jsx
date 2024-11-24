@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../assets/redux/actions'; // Importar la acción
+import { addToCart } from '../../redux/actions'; // Importar la actions
 import './productCard.css';
 import { Modal, Button } from 'react-bootstrap';
 
