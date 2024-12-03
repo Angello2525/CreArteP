@@ -8,22 +8,28 @@ import galeriaImg from '../assets/img/galeria.jpeg';
 import carousel1 from '../assets/img/1Carousel.png';
 import carousel2 from '../assets/img/2Carousel.png';
 import carousel3 from '../assets/img/3Carousel.png';
+import Pintura from '../assets/img/descuentos/pinturas.png';
+import Pincel from '../assets/img/descuentos/Pincel.png';
+import Brocha from '../assets/img/descuentos/Brocha.png';
+import Lienzo from '../assets/img/descuentos/Lienzo.png';
+import Acuarela from '../assets/img/descuentos/Acuarela.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const carouselImages = [
     { id: 1, src: carousel1, alt: 'Slide 1'},
     { id: 2, src: carousel2, alt: 'Slide 2'},
     { id: 3, src: carousel3, alt: 'Slide 3'},
 ];
-
 const sampleProducts = [
-    { id: 1, name: 'pinturas', discount: 25, image: 'https://via.placeholder.com/150' },
-    { id: 2, name: 'Pincel', discount: 6, image: 'https://via.placeholder.com/150' },
-    { id: 3, name: 'Brocha', discount: 7, image: 'https://via.placeholder.com/150' },
-    { id: 4, name: 'Lienzo', discount: 15, image: 'https://via.placeholder.com/150' },
-    { id: 5, name: 'Acuarelas', discount: 12, image: 'https://via.placeholder.com/150' }
-];
 
+    { id: 1, name: 'pinturas', discount: 25, image: Pintura},
+    { id: 2, name: 'Pincel', discount: 6, image: Pincel },
+    { id: 3, name: 'Brocha', discount: 7, image: Brocha },
+    { id: 4, name: 'Lienzo', discount: 15, image: Lienzo },
+    { id: 5, name: 'Acuarelas', discount: 12, image: Acuarela }
+
+];
 const famousPainters = [
     { id: 101,
         name: 'Leonardo da Vinci',
@@ -100,6 +106,7 @@ const App = () => {
             </Carousel>
 
             {/* Lista de productos normales */}
+            
             <ProductList items={sampleProducts} title="NUEVOS Y DESTACADOS" />
             
             {/* Banners en medio */}

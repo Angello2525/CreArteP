@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product, onAddToCart, isPainter = false }) => {
     // Estados para manejar los likes y el modal
@@ -29,6 +30,7 @@ const ProductCard = ({ product, onAddToCart, isPainter = false }) => {
 
                 {/* Mostrar imagen solo si no es un pintor */}
                 {!isPainter && (
+                    
                     <img src={product.image} alt={product.name} className="product-image" />
                 )}
 
@@ -52,7 +54,9 @@ const ProductCard = ({ product, onAddToCart, isPainter = false }) => {
 
                     {/* Mostrar carrito solo si no es un pintor */}
                     {!isPainter && (
-                        <FaShoppingCart onClick={onAddToCart} className="add-to-cart-icon" />
+                        <Link to="/productos">
+                            <FaShoppingCart onClick={onAddToCart} className="add-to-cart-icon" />
+                        </Link>
                     )}
                 </div>
             </div>

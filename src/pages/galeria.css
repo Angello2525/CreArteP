@@ -12,6 +12,22 @@
     padding-top: 6rem;
 }
 
+.slick-prev, .slick-next {
+    font-size: 40px; /* Mayor tamaño */
+    color: black;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+
 /* diseño responsive */
 @media (max-width: 1024px) {
     .galeria-grid {
