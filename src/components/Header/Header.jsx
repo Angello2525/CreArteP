@@ -45,9 +45,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="icons-container">
-        <Link to="/login">
           <User className="icon" />
-        </Link>
           <ShoppingCart className="icon" onClick={toggleCartModal} /> {/* Icono para abrir el modal */}
           <div className="hamburger" onClick={toggleMenu}>
             {isOpen ? <X /> : <Menu />}
