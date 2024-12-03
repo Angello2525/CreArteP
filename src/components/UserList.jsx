@@ -121,16 +121,6 @@ const UserList = () => {
     <div className="container" style={{ padding: '150px 30px' }}>
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
 
-      {/* <div className="mb-3 text-left">
-        <button
-          className="btn btn-sm btn-danger d-inline-flex align-items-center"
-          onClick={handleNewUser}
-        >
-          <PlusCircle size={20} className="me-2" />
-          Agregar
-        </button>
-      </div> */}
-
       <div className="mb-3 text-left">
         <button
           className="btn btn-sm btn-danger d-inline-flex align-items-center"
