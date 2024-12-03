@@ -1,3 +1,7 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'react-toastify/dist/ReactToastify.css';
+
+
 .pagina-container {
   padding-top: 120px;
   min-height: 100vh;

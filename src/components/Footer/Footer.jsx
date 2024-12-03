@@ -4,15 +4,16 @@ import logo from '../../assets/img/logo.png';
 import { FaFacebook, FaInstagram, FaYoutube} from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { MdPhone, MdEmail,MdContactMail  } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
       <footer className="footer">
         <div className="footer-content">
           <div className="logo">
-            <a href="/">
+          <Link to="/">
             <img src={logo} alt="CreArte Logo" className="logo-image" />
-            </a>
+          </Link>
           </div>
           <div className="slogan">
             INNOVACIÓN PARA TODOS
@@ -20,15 +21,15 @@ function Footer() {
           <div className="contact-info">
             <div className="contact-item">
               <MdPhone className="contact-icon" />
-              <a href="./contacto">3115254580</a>
+              <Link to="/contacto">3115254580</Link>
             </div>
             <div className="contact-item">
               <MdEmail className="contact-icon" />
-              <a href="./contacto">Crearte@gmail.com</a>
+              <Link to="/contacto">Crearte@gmail.com</Link>
             </div>
             <div className="contact-item">
               <MdContactMail  className="contact-icon" />
-              <a href="./contacto">Contactenos</a>
+              <Link to="/contacto">Contactenos</Link>
               </div>
             </div>
           </div>

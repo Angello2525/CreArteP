@@ -6,6 +6,8 @@ import App from './App';
 import store from '../src/redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
 // Selecciona el elemento root
 const rootElement = document.getElementById('root');
 

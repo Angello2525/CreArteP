@@ -1,0 +1,41 @@
+/* Estilos personalizados */
+:root {
+    --primary-red: #FF0000;
+    --secondary-red: #FF0000;
+    --light-red: #f8d7da;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: var(--light-red);
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-header {
+    background-color: var(--primary-red);
+    color: white;
+  }
+  
+  .btn-custom-delete {
+    background-color: var(--primary-red);
+    border-color: var(--secondary-red);
+  }
+  
+  .btn-custom-delete:hover {
+    background-color: var(--secondary-red);
+  }
+  
+  .modal-header {
+    background-color: var(--light-red);
+    color: var(--secondary-red);
+  }
+  
+  .toast-container {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 1050;
+  }
