@@ -14,22 +14,17 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleCartModal = () => setShowCartModal(!showCartModal);
 
-  // Obtener productos del carrito desde el estado global
   const cartItems = useSelector((state) => state.cart.cartItems) || [];  
-
   const dispatch = useDispatch(); 
 
-  // Función para agregar productos al carrito
   const handleAddToCart = (producto) => {
     dispatch(addToCart(producto)); 
   };
 
-  // Función para eliminar un producto del carrito
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
   };
 
-  // Calcular el total del carrito
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
       return total + item.price;
@@ -45,15 +40,17 @@ const Header = () => {
           </Link>
         </div>
         <div className="icons-container">
-          <User className="icon" />
-          <ShoppingCart className="icon" onClick={toggleCartModal} /> {/* Icono para abrir el modal */}
+          {/* Cambiado el ícono de perfil para que redirija a /login */}
+          <Link to="/login">
+            <User className="icon" />
+          </Link>
+          <ShoppingCart className="icon" onClick={toggleCartModal} />
           <div className="hamburger" onClick={toggleMenu}>
             {isOpen ? <X /> : <Menu />}
           </div>
         </div>
       </div>
       
-      {/* Modal para mostrar los productos del carrito */}
       <Modal show={showCartModal} onHide={toggleCartModal}>
         <Modal.Header closeButton>
           <Modal.Title>Carrito de Compras</Modal.Title>
@@ -76,11 +73,9 @@ const Header = () => {
 
                     <p>Precio: COP {item.price}</p>
                   </div>
-                  {/* Icono de eliminación */}
                   <Trash2 className="delete-icon" onClick={() => handleRemoveFromCart(item.id)} />
                 </div>
               ))}
-              {/* Mostrar el total */}
               <div className="cart-total">
                 <h5>Total: COP {calculateTotal().toFixed(2)}</h5> 
               </div>
