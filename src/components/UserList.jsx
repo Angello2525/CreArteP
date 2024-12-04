@@ -118,16 +118,16 @@ const UserList = () => {
   }
 
   return (
-    <div className="container" style={{ padding: '150px 30px' }}>
+    <div className="container" style={{ padding: '140px 30px' }}>
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
 
       <div className="mb-3 text-left">
         <button
           className="btn btn-sm btn-danger d-inline-flex align-items-center"
           onClick={handleNewUser}
-          style={{ width: '100px', height: '40px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+          style={{ width: '90px', height: '35px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
         >
-          <PlusCircle size={20} className="me-2" />
+          <PlusCircle size={18} className="me-2" />
           Agregar
         </button>
       </div>
@@ -174,33 +174,29 @@ const UserList = () => {
           </table>
         </div>
 
-        <div className="card-footer d-flex justify-content-end align-items-center">
-          <nav>
-            <ul className="pagination m-0">
-              <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-                <button
-                  className="page-link bg-danger text-white border-danger"
-                  onClick={() => paginate(currentPage - 1)}
-                >
-                  <ChevronLeft size={16} />
-                </button>
-              </li>
-              
-              <li className="page-item">
-                <span className="page-link text-danger">
-                  Página {currentPage} de {totalPages}
-                </span>
-              </li>
-              <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-                <button
-                  className="page-link bg-danger text-white border-danger"
-                  onClick={() => paginate(currentPage + 1)}
-                >
-                  <ChevronRight size={16} />
-                </button>
-              </li>
-            </ul>
-          </nav>
+        <div className="card-footer d-flex justify-content-between align-items-center">
+          <button
+            className={`btn btn-sm btn-outline-danger ${currentPage === 1 ? 'disabled' : ''}`}
+            onClick={() => paginate(currentPage - 1)}
+            style={{ minWidth: '60px', padding: '4px 7px' }} // Botones más pequeños
+          >
+            <ChevronLeft size={16} /> Anterior
+          </button>
+
+          <span
+            className="text-danger mx-2 text-center"
+            style={{ flexGrow: 2, fontSize: '14px', letterSpacing: '2px' }} 
+          >
+            Página {currentPage} de {totalPages}
+          </span>
+
+          <button
+            className={`btn btn-sm btn-outline-danger ${currentPage === totalPages ? 'disabled' : ''}`}
+            onClick={() => paginate(currentPage + 1)}
+            style={{ minWidth: '60px', padding: '4px 7px' }} // Botones más pequeños
+          >
+            Siguiente <ChevronRight size={16} />
+          </button>
         </div>
       </div>
 
@@ -245,12 +241,10 @@ const UserList = () => {
                       name="name"
                       value={currentUser.name}
                       onChange={handleChange}
-                      className="form-control"
-                      placeholder="Ingresa tu nombre"
+                      className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                     />
-                    {errors.name && <p className="text-danger">{errors.name}</p>}
+                    {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                   </div>
-                  
                   <div className="mb-3">
                     <label className="form-label">Email</label>
                     <input
@@ -258,12 +252,10 @@ const UserList = () => {
                       name="email"
                       value={currentUser.email}
                       onChange={handleChange}
-                      className="form-control"
-                      placeholder="nombre@ejemplo.com"
+                      className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                     />
-                    {errors.email && <p className="text-danger">{errors.email}</p>}
+                    {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                   </div>
-                  
                   <div className="mb-3">
                     <label className="form-label">Contraseña</label>
                     <input
@@ -271,16 +263,23 @@ const UserList = () => {
                       name="password"
                       value={currentUser.password}
                       onChange={handleChange}
-                      className="form-control"
-                      placeholder="Contraseña segura"
+                      className={`form-control ${errors.password ? 'is-invalid' : ''}`}
                     />
-                    {errors.password && <p className="text-danger">{errors.password}</p>}
+                    {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label">Avatar</label>
+                    <input
+                      type="text"
+                      name="avatar"
+                      value={currentUser.avatar}
+                      onChange={handleChange}
+                      className="form-control"
+                    />
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" onClick={() => setUserFormModalVisible(false)}>
-                    Cancelar
-                  </button>
+                  <button type="button" className="btn btn-secondary" onClick={() => setUserFormModalVisible(false)}>Cancelar</button>
                   <button type="submit" className="btn btn-danger">
                     {currentUser.id ? 'Actualizar' : 'Crear'}
                   </button>

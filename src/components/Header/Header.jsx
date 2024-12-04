@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User, Trash2 } from 'lucide-react'; // Asegúrate de importar Trash2
 import logo from '../../assets/img/logo.png';
 import './Header.css';
@@ -10,6 +10,8 @@ import { REMOVE_FROM_CART, addToCart, removeFromCart, updateQuantity } from '../
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showCartModal, setShowCartModal] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);  // Estado para manejar la autenticación del usuario
+  const navigate = useNavigate();  // Hook para redireccionar
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleCartModal = () => setShowCartModal(!showCartModal);
@@ -36,6 +38,12 @@ const Header = () => {
     }, 0);
   };
 
+  // Función para manejar el cierre de sesión
+  const handleLogout = () => {
+    setIsAuthenticated(false);  // Cambiar estado a no autenticado
+    navigate("/");  // Redirigir al inicio
+  };
+
   return (
     <header className="header">
       <div className="header-top">
@@ -45,10 +53,17 @@ const Header = () => {
           </Link>
         </div>
         <div className="icons-container">
-          {/* Cambiado el ícono de perfil para que redirija a /login */}
-          <Link to="/login">
-            <User className="icon" />
-          </Link>
+          {/* Cambiar el botón dependiendo si está autenticado */}
+          {isAuthenticated ? (
+            <button onClick={handleLogout} className="btn btn-outline-danger">
+              Cerrar sesión
+            </button>
+          ) : (
+            <Link to="/login">
+              <User className="icon" />
+            </Link>
+          )}
+
           <ShoppingCart className="icon" onClick={toggleCartModal} />
           <div className="hamburger" onClick={toggleMenu}>
             {isOpen ? <X /> : <Menu />}

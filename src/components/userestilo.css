@@ -6,7 +6,7 @@
   }
   
   body {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
   }
   
   .table-hover tbody tr:hover {
@@ -25,7 +25,7 @@
   }
   
   .btn-custom-delete:hover {
-    background-color: var(--secondary-red);
+    background-color: var(--red);
   }
   
   .modal-header {
