@@ -23,6 +23,8 @@ const initialState = {
             item.id === action.payload.productId ? { ...item, quantity: action.payload.quantity } : item
           ),
         };
+
+        
       default:
         return state;
     }

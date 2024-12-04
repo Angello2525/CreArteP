@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ProductCard from './productCard'; 
 import './productList.css';
 
-
 const productsData = [
   {
     id: 1,
@@ -38,7 +37,6 @@ const productsData = [
   }
 ];
 
-
 const formatPrice = (price) => {
   return new Intl.NumberFormat('es-CO', {
     style: 'currency',
@@ -47,7 +45,6 @@ const formatPrice = (price) => {
     maximumFractionDigits: 0,
   }).format(price);
 };
-
 
 const ProductList = ({ viewMode }) => {
   const [productColors, setProductColors] = useState(

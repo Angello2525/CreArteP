@@ -30,7 +30,8 @@ const Login = () => {
         name: 'Administrador',
         isAdmin: true
       };
-      localStorage.setItem('user', JSON.stringify(adminUser));
+      localStorage.setItem('user', JSON.stringify(adminUser));  // Guardamos el usuario en localStorage
+      localStorage.setItem('isAuthenticated', true); // Marcamos como autenticado
       navigate('/usuarios');
       return;
     }
@@ -45,7 +46,8 @@ const Login = () => {
           return;
         }
 
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user)); // Guardamos el usuario en localStorage
+        localStorage.setItem('isAuthenticated', true); // Marcamos como autenticado
         navigate('/usuarios');
       } else {
         setErrors({ login: 'Credenciales inválidas' });

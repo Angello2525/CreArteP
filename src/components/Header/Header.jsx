@@ -1,47 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Trash2 } from 'lucide-react'; // Asegúrate de importar Trash2
+import { Menu, X, ShoppingCart, User, Trash2 } from 'lucide-react';
 import logo from '../../assets/img/logo.png';
 import './Header.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
-import { REMOVE_FROM_CART, addToCart, removeFromCart, updateQuantity } from '../../redux/actions'; // Asegúrate de tener la acción updateQuantity
+import { addToCart, removeFromCart, updateQuantity } from '../../redux/actions';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showCartModal, setShowCartModal] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);  // Estado para manejar la autenticación del usuario
-  const navigate = useNavigate();  // Hook para redireccionar
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado de autenticación
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    const authenticated = localStorage.getItem('isAuthenticated');
+    
+    if (user && authenticated) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleCartModal = () => setShowCartModal(!showCartModal);
+  const toggleUserMenu = () => setShowUserMenu(!showUserMenu);
 
-  const cartItems = useSelector((state) => state.cart.cartItems) || [];  
-  const dispatch = useDispatch(); 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleAddToCart = (producto) => {
-    dispatch(addToCart(producto)); 
-  };
+  const cartItems = useSelector((state) => state.cart.cartItems) || [];
 
-  const handleRemoveFromCart = (productId) => {
-    dispatch(removeFromCart(productId));
-  };
-
-  // Función para actualizar la cantidad de productos en el carrito
-  const handleQuantityChange = (productId, quantity) => {
-    dispatch(updateQuantity(productId, quantity)); // Acción para actualizar la cantidad
-  };
-
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => {
-      return total + (item.price * item.quantity); // Multiplicar precio por la cantidad
-    }, 0);
-  };
-
-  // Función para manejar el cierre de sesión
+  // Función para cerrar sesión
   const handleLogout = () => {
-    setIsAuthenticated(false);  // Cambiar estado a no autenticado
-    navigate("/");  // Redirigir al inicio
+    localStorage.removeItem('user'); // Limpiamos el usuario
+    localStorage.removeItem('isAuthenticated'); // Limpiamos la autenticación
+    setIsAuthenticated(false); // Cambiar el estado a no autenticado
+    setShowUserMenu(false); // Ocultar el menú
+    navigate('/'); // Redirigir al inicio
   };
 
   return (
@@ -53,24 +51,40 @@ const Header = () => {
           </Link>
         </div>
         <div className="icons-container">
-          {/* Cambiar el botón dependiendo si está autenticado */}
-          {isAuthenticated ? (
-            <button onClick={handleLogout} className="btn btn-outline-danger">
-              Cerrar sesión
-            </button>
-          ) : (
-            <Link to="/login">
-              <User className="icon" />
-            </Link>
-          )}
+          {/* Menú desplegable para el usuario */}
+          <div className="user-menu">
+            <User className="icon" onClick={toggleUserMenu} title="Opciones de usuario" />
+            {showUserMenu && (
+              <div className="user-menu-dropdown">
+                {isAuthenticated ? (
+                  <>
+                    {/* Si está autenticado, mostrar opción "Cerrar sesión" */}
+                    <button onClick={handleLogout} className="logout-button">
+                      Cerrar sesión
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {/* Si no está autenticado, mostrar opción "Iniciar sesión" */}
+                    <Link to="/login">
+                      Iniciar sesión
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
 
-          <ShoppingCart className="icon" onClick={toggleCartModal} />
+          {/* Icono del carrito */}
+          <ShoppingCart className="icon" onClick={toggleCartModal} title="Carrito de compras" />
+
+          {/* Icono de menú hamburguesa */}
           <div className="hamburger" onClick={toggleMenu}>
             {isOpen ? <X /> : <Menu />}
           </div>
         </div>
       </div>
-      
+
       {/* Modal para mostrar los productos del carrito */}
       <Modal show={showCartModal} onHide={toggleCartModal}>
         <Modal.Header closeButton>
@@ -81,24 +95,39 @@ const Header = () => {
             <div>
               {cartItems.map((item, index) => (
                 <div key={index} className="cart-item">
-                  <img src={item.image} alt={item.name} style={{ width: '50px', marginRight: '10px' }} />
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    style={{ width: '50px', marginRight: '10px' }}
+                  />
                   <div>
                     <h5>{item.name}</h5>
-                    <p>Color: 
-                      <span 
-                        style={{ 
-                          backgroundColor: item.selectedColor,
-                          padding: '2px 8px', 
-                          borderRadius: '5px' }} />
-                    </p>
                     <p>Precio: COP {item.price}</p>
                   </div>
-                  {/* Icono de eliminación */}
-                  <Trash2 className="delete-icon" onClick={() => handleRemoveFromCart(item.id)} />
+                  <div className="quantity-container">
+                    <button onClick={() => dispatch(updateQuantity(item.id, item.quantity - 1))}>
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) =>
+                        dispatch(updateQuantity(item.id, parseInt(e.target.value, 10)))
+                      }
+                      min="1"
+                    />
+                    <button onClick={() => dispatch(updateQuantity(item.id, item.quantity + 1))}>
+                      +
+                    </button>
+                  </div>
+                  <Trash2
+                    className="delete-icon"
+                    onClick={() => dispatch(removeFromCart(item.id))}
+                  />
                 </div>
               ))}
               <div className="cart-total">
-                <h5>Total: COP {calculateTotal().toFixed(2)}</h5> 
+                <h5>Total: COP {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</h5>
               </div>
             </div>
           ) : (
@@ -109,22 +138,21 @@ const Header = () => {
           <Button variant="secondary" onClick={toggleCartModal}>
             Cerrar
           </Button>
-          <Button variant="danger" as={Link} to="/checkout" onClick={toggleCartModal}>
-            Ir a Pagar
-          </Button>
+          <Button variant="primary">Ir a Pagar</Button>
         </Modal.Footer>
       </Modal>
 
+      {/* Menú de navegación */}
       <nav className="nav-container">
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
           <Link to="/">INICIO</Link>
           <Link to="/marca">MARCA</Link>
           <Link to="/conocenos">CONÓCENOS</Link>
-          <Link to="/guias-art">GUIAS ART</Link>
+          <Link to="/guias-art">GUÍAS ART</Link>
           <Link to="/contacto">CONTACTO</Link>
           <Link to="/productos">PRODUCTOS</Link>
           <Link to="/tutoriales">TUTORIALES</Link>
-          <Link to="/galeria">GALERIA</Link>
+          <Link to="/galeria">GALERÍA</Link>
         </div>
       </nav>
     </header>
