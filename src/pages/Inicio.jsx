@@ -49,19 +49,19 @@ const famousPainters = [
         period: 'Cubismo'
     },
 
-    { id: 104, name: 'Frida Kahlo',
+    { id: 104, name:'Magdalena Frida Kahlo',
         description: 'Un pintora francesa famosa por su obra "Sunflowers".',
         famousWorks: ['Sunflowers', 'The Starry Night'],
         period: 'Cubismo'
     },
 
-    { id: 105, name: 'Raphael',
+    { id: 105, name: 'Raffaello Sanzio',
         description: 'Un pintor francés famoso por su obra "Les Demoiselles d\'Avignon".',
         famousWorks: ['Les Demoiselles d\'Avignon', 'Guernica'],
         period: 'Cubismo'
     },
 
-    { id: 106, name: 'Miro',
+    { id: 106, name: 'Joan Miró I Ferrà',
         description: 'Un pintor francés famoso por su obra "Les Demoiselles d\'Avignon".',
         famousWorks: ['Les Demoiselles d\'Avignon', 'Guernica'],
         period: 'Cubismo'
