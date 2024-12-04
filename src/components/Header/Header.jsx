@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Trash2 } from 'lucide-react'; 
+import { Menu, X, ShoppingCart, User, Trash2 } from 'lucide-react'; // Asegúrate de importar Trash2
 import logo from '../../assets/img/logo.png';
 import './Header.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
-import { REMOVE_FROM_CART, addToCart, removeFromCart } from '../../redux/actions';
+import { REMOVE_FROM_CART, addToCart, removeFromCart, updateQuantity } from '../../redux/actions'; // Asegúrate de tener la acción updateQuantity
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +25,14 @@ const Header = () => {
     dispatch(removeFromCart(productId));
   };
 
+  // Función para actualizar la cantidad de productos en el carrito
+  const handleQuantityChange = (productId, quantity) => {
+    dispatch(updateQuantity(productId, quantity)); // Acción para actualizar la cantidad
+  };
+
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
-      return total + item.price;
+      return total + (item.price * item.quantity); // Multiplicar precio por la cantidad
     }, 0);
   };
 
@@ -51,6 +56,7 @@ const Header = () => {
         </div>
       </div>
       
+      {/* Modal para mostrar los productos del carrito */}
       <Modal show={showCartModal} onHide={toggleCartModal}>
         <Modal.Header closeButton>
           <Modal.Title>Carrito de Compras</Modal.Title>
@@ -65,14 +71,14 @@ const Header = () => {
                     <h5>{item.name}</h5>
                     <p>Color: 
                       <span 
-                      style={{ 
-                        backgroundColor: item.selectedColor,
-                        padding: '2px 8px', 
-                        borderRadius: '5px' }}>
-                          </span></p>
-
+                        style={{ 
+                          backgroundColor: item.selectedColor,
+                          padding: '2px 8px', 
+                          borderRadius: '5px' }} />
+                    </p>
                     <p>Precio: COP {item.price}</p>
                   </div>
+                  {/* Icono de eliminación */}
                   <Trash2 className="delete-icon" onClick={() => handleRemoveFromCart(item.id)} />
                 </div>
               ))}
